@@ -1,0 +1,10 @@
+extends layouts/main-layout.pug
+
+block content    
+    +createPostMixin(userLoggedIn)
+    .postsContainer
+    +createDeletePostModal()
+
+
+block  scripts 
+    script(src="/js/home.js")

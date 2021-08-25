@@ -1,0 +1,220 @@
+*{
+    outline:none !important;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+}
+
+nav a {
+    color: rgba(0, 0, 0, 0.74);
+    padding: 10px;
+    font-size: 30px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a.blue{
+    color:rgb(106, 106, 236)
+
+}
+nav a.blue:hover{
+    background-color:rgb(106, 106, 236);
+    color:rgb(255, 255, 255);
+}
+nav a:hover{
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.349);
+    color:rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.mainSectionContainer{
+    /* background-color: rgb(255, 0, 0); */
+    padding: 0;
+    border-left: 1px solid rgb(194, 194, 194);;
+    border-right: 1px solid rgb(194, 194, 194);
+    flex-direction: column;
+}
+
+.titleContainer{
+    height: 53px;
+    padding:0 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    flex-shrink:0
+}
+
+h1{
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.postFormContainer{
+    display: flex;
+    padding:15px;
+    border-bottom: 5px solid rgb(236, 233, 233);
+    flex-shrink:0;
+}
+
+.userImageContainer{
+    width:50px;
+    height:50px
+}
+
+.userImageContainer img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.textAreaContainer{
+    flex:1;
+    padding-left: 15px;
+}
+
+.textAreaContainer textarea{
+    width: 100%;
+    border:none;
+    resize:none;
+    font-size: 19px;
+}
+
+#submitPostButton{
+    background-color: rgb(106, 106, 236);
+    color: white;
+    border:none;
+    border-radius: 40px;
+    padding:7px
+}
+
+#submitPostButton:disabled{
+    background-color: rgb(171, 207, 238);
+}
+
+.post{
+    display:flex;
+    flex-direction:column;
+    padding:15px;
+    cursor:pointer;
+    border:1px solid #b5b5b5;
+    flex-shrink:0
+    }
+    
+.mainContentContainer{
+    flex:1;
+    display:flex;
+}
+ 
+
+.PostContentContainer{
+    padding-left:15px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+.header a{
+    text-decoration:none;
+    color:#212020;
+    font-weight:700;
+    font-size:20px;
+
+}
+
+.username,.date {
+    margin-left:15px;
+    color:#777676;
+}
+
+.content{
+    font-weight:450;
+}
+
+.PostContentContainer
+.header{
+    display:flex;
+}
+
+
+.PostContentContainer
+.header .date{
+    flex:1
+}
+
+.errorMessage{
+    padding:15px;
+}
+
+
+.profileHeaderContainer .coverPhotoContainer{
+    height:180px;
+    background-color: rgb(82, 82, 248);
+    position: relative;
+}
+
+.profileHeaderContainer .userImageContainer{
+    height:132px;   
+    width:132px;
+    margin-left: 15px;
+    position: absolute;
+    bottom: -66px;
+}
+
+.profileHeaderContainer .userImageContainer img{
+    border:4px solid white;
+}
+
+.profileHeaderContainer .profileButtonContainer {
+    text-align: right;
+    padding: 15px;
+    min-height: 66px;
+}
+
+.profileButton ,.followButton{
+    border: 1px solid rgb(82, 82, 248);
+    color: rgb(82, 82, 248);
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 60px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.profileButton:hover .followButton:hover{
+    background-color: rgb(82, 82, 248);
+}
+
+.followButton.following{
+    background-color: rgb(82, 82, 248);
+    color: #fff;
+}
+
+.profileHeaderContainer .userDetailsContainer{
+    display:flex;
+    flex-direction:column;
+    padding:0 15px;
+} 
+
+.followersContainer .value{
+     font-weight:bold;
+     margin-right:5px;
+}
+
+
+.followersContainer span:not(.value){
+     color:gray;
+}
+
+.followersContainer a{
+    margin-right:15px;
+}
+
+

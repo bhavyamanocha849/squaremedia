@@ -1,0 +1,27 @@
+mixin createPostMixin(userLoggedIn)
+    .postFormContainer  
+        .userImageContainer     
+            img(src = userLoggedIn.profilePic,alt ="Profile Pic")
+        .textAreaContainer 
+            textarea#postTextArea(placeholder="What's on your mind today") 
+            .buttonContainer 
+                button#submitPostButton(disabled="") Tweet it out
+            
+mixin createDeletePostModal()
+    #deletePostModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deletePostModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5#deletePostModalLabel.modal-title Delete the Post?
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body 
+                    p delete
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                    button#deletePostButton.btn.btn-primary(type='button') Delete
+
+mixin createFollowButton(user,isFollowing)
+    - text = isFollowing ? "Following":"Follow"
+    - buttonClass = isFollowing ? "followButton following" : "followButton"
+    button(class=buttonClass ,data-user = user._id) #{text}

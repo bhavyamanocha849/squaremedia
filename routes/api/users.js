@@ -45,31 +45,45 @@ router.get("/current",async(req,res,next)=>{
     return res.status(200).send(user);
 })
 
-router.get("/:userId/following",(req,res,next)=>{
-    User.findById(req.params.userId)
-    .populate("following")
-    .then((results)=>{
-        console.log(results);
-        res.status(200).send(results);
-    })
-    .catch((er)=>{
+router.get("/:userId/following",async(req,res,next)=>{
+    user = await User.findById(req.params.userId);
+    user.populate("following");
+    if(user == null){
         console.log(er);
         res.sendStatus(400);
         return;
-    })
+    }
+    res.status(200).send(user);
+    // .then((results)=>{
+    //     console.log(results);
+    //     res.status(200).send(results);
+    // })
+    // .catch((er)=>{
+    //     console.log(er);
+    //     res.sendStatus(400);
+    //     return;
+    // })
 });
 
 
 router.get("/:userId/followers",async(req,res,next)=>{
-    User.findById(req.params.userId)
-    .populate("followers")
-    .then((results)=>{
-        res.status(200).send(results);
-    })
-    .catch((er)=>{
+    user = await User.findById(req.params.userId);
+    user.populate("following");
+    if(user == null){
         console.log(er);
         res.sendStatus(400);
-    })
+        return;
+    }
+    res.status(200).send(user);
+    // User.findById(req.params.userId)
+    // .populate("followers")
+    // .then((results)=>{
+    //     res.status(200).send(results);
+    // })
+    // .catch((er)=>{
+    //     console.log(er);
+    //     res.sendStatus(400);
+    // })
 });
 
 

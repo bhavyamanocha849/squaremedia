@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3232;
 const middleware = require('./middleware')
+const mongoose = require('./database')
 const path = require('path')
 const bodyParser = require("body-parser")
 const session = require("express-session");

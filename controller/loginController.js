@@ -18,18 +18,15 @@ async function login(req, res, next){
         
         if(user != null) {
             var result = await bcrypt.compare(req.body.logPassword, user.password);
-
             if(result === true) {
                 //set session
                 req.session.user = user;
                 return res.redirect("/");
             }
         }
-
         payload.errorMessage = "Login credentials incorrect.";
         return res.status(200).render("login", payload);
     }
-
     payload.errorMessage = "Make sure each field has a valid value.";
     res.status(200).render("login");
 }

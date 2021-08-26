@@ -31,12 +31,13 @@ async function getPosts(req,res,next){
 }
 
 async function deletePosts(req,res,next){
-    // console.log("checking:::");
+    
     var user = req.session.user._id;
-    // console.log(user);
+    console.log(user);
     var post = await Post.findById(req.params.id);
-    // console.log(post.postedBy);
-    if(post.postedBy === user){
+    console.log(post.postedBy);
+    
+    if(post.postedBy == user){
         await Post.findByIdAndDelete(req.params.id)
         .then(()=>{
             res.sendStatus(202);

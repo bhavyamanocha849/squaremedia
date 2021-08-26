@@ -2,7 +2,6 @@
     outline:none !important;
 }
 
-
 nav {
     display: flex;
     flex-direction: column;
@@ -49,7 +48,7 @@ nav a:hover{
     padding:0 15px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(194, 194, 194);
+    /* border: 3px solid rgb(170, 170, 170); */
     flex-shrink:0
 }
 
@@ -62,7 +61,7 @@ h1{
 .postFormContainer{
     display: flex;
     padding:15px;
-    border-bottom: 5px solid rgb(236, 233, 233);
+    border: 3px solid rgb(170, 170, 170);
     flex-shrink:0;
 }
 
@@ -101,14 +100,15 @@ h1{
 }
 
 .post{
+    margin:5px 0px;
+    border:3px solid rgb(211, 211, 211);
     display:flex;
     flex-direction:column;
     padding:15px;
     cursor:pointer;
-    border:1px solid #b5b5b5;
     flex-shrink:0
-    }
-    
+}
+   
 .mainContentContainer{
     flex:1;
     display:flex;

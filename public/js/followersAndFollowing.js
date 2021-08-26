@@ -8,19 +8,21 @@ $(document).ready(()=>{
 
 function loadFollowers(){
     $.get(`/api/users/${profileUserId}/followers`,results=>{
+        console.log(results)
         outputUsers(results.followers,$(".resultContainer"))
     })
 }
 
 function loadFollowing(){
     $.get(`/api/users/${profileUserId}/following`,results=>{
+        console.log(results)
         outputUsers(results.following,$(".resultContainer"))
     })
 }
 
 function outputUsers(results,container){
     container.html("");
-    
+
     results.forEach(result=>{
         var html = createFollowerHtml(result,true)
         container.append(html);

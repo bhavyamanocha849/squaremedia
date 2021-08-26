@@ -8,7 +8,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 router.put("/:userId/follow",async(req,res,next)=>{
     var userID = req.params.userId;
-
     var user = await User.findById(userID);
     console.log(user);
     if(user == null){
@@ -33,29 +32,27 @@ router.put("/:userId/follow",async(req,res,next)=>{
 })
 
 router.get("/:userId/following",async(req,res,next)=>{
-    User.findById(req.params.userId)
+    users = await User.findById(req.params.userId)
     .populate("following")
-    .then((results)=>{
-        console.log(results);
-        res.status(200).send(results);
-    })
     .catch((er)=>{
         console.log(er);
         res.sendStatus(400);
-        return
     })
+
+    res.status(200).send(users);
+    
 });
 
 router.get("/:userId/followers",async(req,res,next)=>{
-    User.findById(req.params.userId)
+    var users  = await User.findById(req.params.userId)
     .populate("followers")
-    .then((results)=>{
-        res.status(200).send(results);
-    })
     .catch((er)=>{
         console.log(er);
         res.sendStatus(400);
     })
+
+    res.status(200).send(users);
+    
 });
 
 

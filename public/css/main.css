@@ -188,7 +188,7 @@ h1{
     margin-left: 15px;
 }
 
-.profileButton:hover .followButton:hover{
+.profileButton:hover, .followButton:hover{
     background-color: rgb(82, 82, 248);
 }
 
@@ -218,3 +218,48 @@ h1{
 }
 
 
+.tabsContainer {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    flex-shrink: 0;
+}
+
+.tab {
+    flex: 1;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(187, 186, 186);
+    font-weight: bold;
+}
+
+.tab.active {
+    color: rgb(82, 82, 248);;
+    border-bottom: 2px solid rgb(82, 82, 235);;
+}
+
+.tab:hover {
+    color: rgb(253, 253, 253);
+    background-color: rgb(82, 82, 235);
+}
+
+.noResults{
+    padding:15px;
+}
+
+.resultContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.resultContainer .user{
+     padding:15px;
+     display: flex;
+     border-bottom:1px solid lightgray;
+}
+
+.user .userDetailsContainer{
+    flex:1;
+    padding: 0 15px;
+}

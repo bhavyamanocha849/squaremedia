@@ -65,13 +65,32 @@ $("#deletePostModal").click((event)=>{
 $(document).on("click", ".followButton", (event) => {
     var button = $(event.target);
     var userId = button.data().user; 
-    // console.log(element);
+    console.log(userId);
 
     $.ajax({
         url: `/api/users/${userId}/follow`,
         type:"PUT",
-        success:(userData)=>{
-            console.log(userData);
+        success:(Data,status,xhr)=>{
+            if(xhr.status == 404){
+                alert('user not found');
+                return;
+            }
+            var  diff = 1;
+            if(Data.following && Data.following.includes(userId)){
+                button.addClass("following");
+                button.text("Following")
+            }else{
+                button.removeClass("following");
+                button.text("Follow")
+                diff = -1;
+            }
+
+            var followersLabel =  $("#followersValue");
+            if(followersLabel.length != 0){
+                followersText = followersLabel.text();
+                count = parseInt(followersText);
+                followersLabel.text(count+diff);
+            }
         }
     })
 });
@@ -94,7 +113,6 @@ function outputPosts(results, container) {
 
     results.forEach(result => {
         var html = createHtml(result)
-        // console.log(html);
         container.append(html);
     });
 
@@ -106,7 +124,7 @@ function outputPosts(results, container) {
 function createHtml(postData){
     var postedby = postData.postedBy; 
 
-    if(postedby._id === undefined){
+    if(postedby === undefined){
         alert("User object not populated");
         return;
     }

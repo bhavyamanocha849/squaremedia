@@ -9,8 +9,8 @@ const UserSchema = new Schema({
     email: { type: String, required: true, trim: true, unique: true },
     password: { type: String, required: true },
     profilePic: { type: String, default: "/image/profile.jpg" },
-    following:{type:Schema.Types.ObjectId , ref:'User'},
-    followers:{type:Schema.Types.ObjectId , ref:'User'}
+    following: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    followers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, { timestamps: true });
 
 var User = mongoose.model('User', UserSchema);

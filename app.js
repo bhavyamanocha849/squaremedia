@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
     secret: "dattebayo",
-    store: MongoStore.create({
+    store: new MongoStore.create({
         url: process.env.MONGODB_URI, //YOUR MONGODB URL
         ttl: 14 * 24 * 60 * 60,
         autoRemove: 'native' 

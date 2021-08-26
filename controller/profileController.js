@@ -1,7 +1,7 @@
 // const bcrypt = require("bcrypt");
 const User = require('../schemas/UserSchema');
 
-function register(req, res, next){
+function userProfile(req, res, next){
     var payload =   {
         pageTitle:req.session.user.username,
         userLoggedIn:req.session.user,
@@ -54,5 +54,5 @@ async function getPayload(username,userLoggedIn){
 
 }
 
-module.exports = {register,profile,followers,following}
+module.exports = {userProfile,profile,followers,following}
 

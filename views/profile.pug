@@ -18,7 +18,7 @@ block content
                 
             .profileButtonContainer 
                 if profileUser._id != userLoggedIn._id 
-                    a.profileButton(href=`/messages/${profileUser._id}`)
+                    div.profileButton
                         i.fas.fa-envelope 
 
                     - var profileUserId =  profileUser._id.toString()
@@ -40,8 +40,8 @@ block content
                         span#followersValue.value #{followerCount}
                         span Followers
 
-        .postsContainer
-        +createDeletePostModal()
+        //- .postsContainer
+        //- +createDeletePostModal()
 
-block  scripts 
-    script(src="/js/profile.js")
+//- block  scripts 
+//-     script(src="/js/profile.js")

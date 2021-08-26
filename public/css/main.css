@@ -188,7 +188,7 @@ h1{
     margin-left: 15px;
 }
 
-.profileButton:hover, .followButton:hover{
+.profileButton:hover .followButton:hover{
     background-color: rgb(82, 82, 248);
 }
 
@@ -250,7 +250,7 @@ h1{
 
 .resultContainer{
     display: flex;
-    flex-direction: column;
+ flex-direction: column;
 }
 
 .resultContainer .user{
@@ -261,5 +261,5 @@ h1{
 
 .user .userDetailsContainer{
     flex:1;
-    padding: 0 15px;
+    padding: 15px;
 }

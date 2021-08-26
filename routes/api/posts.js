@@ -6,14 +6,14 @@ const router = express.Router();
 const bodyParser= require('body-parser');
 const  Post  = require('../../schemas/PostSchema');
 const User = require("../../schemas/UserSchema");
-const { getPosts, deletePosts } = require('../../controller/postController');
+const { getPosts, deletePosts, createPost } = require('../../controller/postController');
 app.use(bodyParser.urlencoded({extended:false}));
 
 router.get("/",getPosts);
 
 router.delete("/:id",deletePosts)
 
-router.post("/", ) // res.status(200).send("it works"); )
+router.post("/", createPost) // res.status(200).send("it works"); )
 
 
 // async function getPosts(filter) {

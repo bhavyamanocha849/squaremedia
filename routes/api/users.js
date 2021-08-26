@@ -3,7 +3,6 @@ const app = express();
 const router = express.Router();
 
 const bodyParser= require('body-parser');
-const  Post  = require('../../schemas/PostSchema');
 const User = require("../../schemas/UserSchema")
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -40,7 +39,7 @@ router.get("/current",async(req,res,next)=>{
     var user = await User.findById(req.session.user._id);
     console.log("user"+user);
     if(user === null){
-        console.log();
+        // console.log();
         return res.sendStatus(400);
     }
     return res.status(200).send(user);
@@ -56,6 +55,7 @@ router.get("/:userId/following",(req,res,next)=>{
     .catch((er)=>{
         console.log(er);
         res.sendStatus(400);
+        return;
     })
 });
 

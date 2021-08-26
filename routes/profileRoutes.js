@@ -4,16 +4,16 @@ const router = express.Router();
 const bodyParser = require("body-parser")
 // const bcrypt = require("bcrypt");
 // const User = require('../schemas/UserSchema');
-const { register, profile, following, followers } = require('../controller/profileController');
+const { userProfile, profile, following, followers } = require('../controller/profileController');
 
 app.set("view engine", "pug");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-router.get("/", register);
+router.get("/", userProfile);
 router.get("/:username",profile);
-router.get("/:username/following",following)
-router.get("/:username/followers",followers);
+router.get("/:username/following",following);
+router.get("/:username/followers",followers); 
 
 module.exports = router;

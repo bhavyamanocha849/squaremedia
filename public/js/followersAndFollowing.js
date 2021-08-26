@@ -13,7 +13,7 @@ var userLoggedIn;
 function getUserLoggedIn(){
     $.get(`/api/users/current`,(user)=>{
         userLoggedIn = user;
-        console.log("uu",userLoggedIn)
+        // console.log("uu",userLoggedIn)
     });
 }
 
@@ -33,7 +33,7 @@ function outputUsers(results,container){
     container.html("");
     
     results.forEach(result=>{
-        console.log("ss",result);
+        // console.log("ss",result);
         var html = createFollowerHtml(result,true)
         container.append(html);
     })
@@ -45,7 +45,6 @@ function outputUsers(results,container){
 
 function createFollowerHtml(userData,showFollowButton){
     var name = userData.firstName + userData.lastName;
-    
 
     var isFollowing = userLoggedIn.following && userLoggedIn.following.includes(userData._id)
     console.log(isFollowing);

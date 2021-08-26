@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon ./app.js"
   },
   "author": "Reece Kenney",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express-session": "^1.17.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.9",
+    "nodemon": "^2.0.12",
     "pug": "^3.0.0"
   }
 }

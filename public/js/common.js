@@ -44,19 +44,22 @@ $("#submitPostButton").click((event)=>{
 
 $("#deletePostModal").on("show.bs.modal",(event)=>{
     var btn = $(event.relatedTarget);
-    var postId = getPostIdFromElement(btn)
+    var postId = getPostIdFromElement(btn);
 
     $("#deletePostButton").data("id",postId);
-    console.log($("#deletePostButton").data().id);
+    // console.log($("#deletePostButton").data().id);
 })
 
 $("#deletePostModal").click((event)=>{
     var postId = $(event.target).data("id");
-    console.log(postId);
+    // console.log(postId);
     $.ajax({
         url: `/api/posts/${postId}`,
         type:"DELETE",
         success:()=>{
+            location.reload();
+        },error:()=>{
+            alert("cannot delete other users post")
             location.reload();
         }
     })

@@ -12,7 +12,7 @@ class Database {
     }
 
     connect() {
-        mongoose.connect("mongodb+srv://bhavya849:"+dbPass.pass+"@cluster0.8ww6q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        mongoose.connect(process.env.MONGODB_URI)
         .then(() => {
             console.log("Connected to DB");
         })

@@ -5,7 +5,7 @@ const middleware = require('./middleware')
 const path = require('path')
 const bodyParser = require("body-parser")
 const session = require("express-session");
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 const server = app.listen(port, () => console.log("Server listening on port " + port));
 
@@ -19,7 +19,7 @@ app.use(session({
     secret: "dattebayo",
     resave: true,
     saveUninitialized: false,
-    store: new MongoStore.create({
+    store: MongoStore.create({
         url: process.env.MONGODB_URI,
         ttl: 14 * 24 * 60 * 60,
         autoRemove: 'native' 

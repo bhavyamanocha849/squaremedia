@@ -4,7 +4,6 @@ const port = 3232;
 const middleware = require('./middleware')
 const path = require('path')
 const bodyParser = require("body-parser")
-const mongoose = require("./database");
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 
@@ -18,15 +17,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
     secret: "dattebayo",
+    resave: true,
+    saveUninitialized: false,
     store: new MongoStore.create({
-        url: process.env.MONGODB_URI, //YOUR MONGODB URL
+        url: process.env.MONGODB_URI,
         ttl: 14 * 24 * 60 * 60,
         autoRemove: 'native' 
     }),
-    resave: true,
-    saveUninitialized: false
 }))
-
 
 
 // Page Handler Routes

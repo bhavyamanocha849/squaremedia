@@ -7,7 +7,7 @@ const bodyParser = require("body-parser")
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 
-const server = app.listen(port, () => console.log("Server listening on port " + port));
+const server = app.listen(process.env.PORT, () => console.log("Server listening on port " + process.env.PORT));
 
 app.set("view engine", "pug");
 app.set("views", "views");

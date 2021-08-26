@@ -6,6 +6,7 @@ const path = require('path')
 const bodyParser = require("body-parser")
 const mongoose = require("./database");
 const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
 
 const server = app.listen(port, () => console.log("Server listening on port " + port));
 
@@ -17,9 +18,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
     secret: "dattebayo",
+    store: MongoStore.create({
+        url: process.env.MONGODB_URI, //YOUR MONGODB URL
+        ttl: 14 * 24 * 60 * 60,
+        autoRemove: 'native' 
+    }),
     resave: true,
     saveUninitialized: false
 }))
+
+
 
 // Page Handler Routes
 const loginRoute = require('./routes/loginRoutes');

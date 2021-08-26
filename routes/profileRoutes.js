@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser")
-// const bcrypt = require("bcrypt");
-// const User = require('../schemas/UserSchema');
 const { userProfile, profile, following, followers } = require('../controller/profileController');
 
 app.set("view engine", "pug");

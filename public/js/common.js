@@ -1,7 +1,6 @@
 $("#postTextArea").keyup(event=>{
     var textbox = $(event.target);
     var value = textbox.val().trim();
-    // console.log(value); 
     var btn = $("#submitPostButton");
     if(btn.length == 0)return alert("no submit button found");
     if(value == ""){
@@ -11,7 +10,6 @@ $("#postTextArea").keyup(event=>{
     btn.prop("disabled",false);
 })
 
-//to submit the and make a post request to the api/server
 $("#submitPostButton").click((event)=>{
     var btn = $(event.target);
     var text = $("#postTextArea");  
@@ -22,7 +20,6 @@ $("#submitPostButton").click((event)=>{
 
     $.post("/api/posts",data,async(postData)=>{
         console.log(postData);
-        //after adding to the db we will render the post in the home page
         var html = createHtml(postData);
         $(".postsContainer").prepend(html);
         text.val(""); 
@@ -30,29 +27,14 @@ $("#submitPostButton").click((event)=>{
     }) 
 })
 
-
-// $(document).on("click", ".post", (event) => {
-//     console.log(event);
-//     var element = $(event.target);
-//     console.log(element);
-//     var postId = getPostIdFromElement(element);
-//     console.log(postId);
-//     if(postId !== undefined && !element.is("button")) {
-//         window.location.href = '/post/' + postId;
-//     }
-// });
-
 $("#deletePostModal").on("show.bs.modal",(event)=>{
     var btn = $(event.relatedTarget);
     var postId = getPostIdFromElement(btn);
-
     $("#deletePostButton").data("id",postId);
-    // console.log($("#deletePostButton").data().id);
 })
 
 $("#deletePostModal").click((event)=>{
     var postId = $(event.target).data("id");
-    // console.log(postId);
     $.ajax({
         url: `/api/posts/${postId}`,
         type:"DELETE",
@@ -68,7 +50,6 @@ $("#deletePostModal").click((event)=>{
 $(document).on("click", ".followButton", (event) => {
     var button = $(event.target);
     var userId = button.data().user; 
-    console.log(userId);
 
     $.ajax({
         url: `/api/users/${userId}/follow`,
@@ -134,9 +115,10 @@ function createHtml(postData){
 
     var timestamp = timeDifference(new Date(),new Date(postData.createdAt));
     var button =""
-    // if(postData.postedBy._id == userLoggedIn._id){
+    
+    if(postData.postedBy._id == userLoggedIn._id){
         button = `<button data-id = "${postData.id}" data-toggle="modal" data-target = "#deletePostModal"><i class="fas fa-times"></i></button>`;
-    // }
+    }
 
     return `<div class ='post' data-id='${postData._id}'>
                 <div class = 'mainContentContainer'>

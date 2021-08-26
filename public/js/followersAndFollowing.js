@@ -46,7 +46,7 @@ function outputUsers(results,container){
 function createFollowerHtml(userData,showFollowButton){
     var name = userData.firstName + userData.lastName;
     var isFollowing;
-    if(selectTab == "following")
+    if(selectedTab == "following")
         isFollowing = userLoggedIn.following && userLoggedIn.following.includes(userData._id)
     else {
         isFollowing = userLoggedIn.followers && userLoggedIn.following.includes(userData._id);

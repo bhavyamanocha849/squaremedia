@@ -6,24 +6,31 @@ $(document).ready(()=>{
     }
 })
 
+// var userLoggedIn;
+// function getUserLoggedIn(){
+//     $.get(`/api/users/current`,user=>{
+//         username = user;
+//         // console.log("uu",userLoggedIn)
+//     });
+// }
+
 function loadFollowers(){
     $.get(`/api/users/${profileUserId}/followers`,results=>{
-        console.log(results)
-        outputUsers(results.followers,$(".resultContainer"))
+        outputUsers(results.followers,$(".resultsContainer"))
     })
 }
 
 function loadFollowing(){
     $.get(`/api/users/${profileUserId}/following`,results=>{
-        console.log(results)
-        outputUsers(results.following,$(".resultContainer"))
+        outputUsers(results.following,$(".resultsContainer"))
     })
 }
 
 function outputUsers(results,container){
     container.html("");
-
+    console.log(results);
     results.forEach(result=>{
+        // console.log("ss",result);
         var html = createFollowerHtml(result,true)
         container.append(html);
     })

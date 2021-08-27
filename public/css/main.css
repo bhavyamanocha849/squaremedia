@@ -10,7 +10,6 @@ nav {
 }
 
 nav a {
-    color: rgba(0, 0, 0, 0.74);
     padding: 10px;
     font-size: 30px;
     width: 55px;
@@ -18,6 +17,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #212529;
 }
 
 nav a.blue{

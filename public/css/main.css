@@ -248,12 +248,12 @@ h1{
     padding:15px;
 }
 
-.resultContainer{
+.resultsContainer{
     display: flex;
  flex-direction: column;
 }
 
-.resultContainer .user{
+.resultsContainer .user{
      padding:15px;
      display: flex;
      border-bottom:1px solid lightgray;

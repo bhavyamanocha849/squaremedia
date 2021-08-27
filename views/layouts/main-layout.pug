@@ -12,36 +12,17 @@ html(lang="en")
         script. 
             var userLoggedIn = !{userLoggedInJs}
         .wrapper
-            nav.navbar.navbar-expand-lg.navbar-light.bg-light.nav
-                a.navbar-brand(href='/')
-                    i.fas.fa-dove
-                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
-                #navbarNav.collapse.navbar-collapse
-                    ul.navbar-nav
-                    li
-                        a.nav-link(href='/')
-                            i.fas.fa-home
-                            span.sr-only (current)
-                    li.nav-item
-                        a.nav-link(href='/profile')
-                            i.fas.fa-user
-                    li.nav-item
-                        a.nav-link(href='/logout')
-                            i.fas.fa-sign-out-alt
-                    li.nav-item
-                        a.nav-link.disabled(href='#')
-                            i.fas.fa-search
-                //- nav.col-lg-2.col-md-2.col-sm-2
-                //-     a(href="/").blue
-                //-         i.fas.fa-dove
-                //-     a(href="/")
-                //-         i.fas.fa-home
-                //-     a(href="/profile")
-                //-         i.fas.fa-user
-                //-     a(href="/logout")
-                //-         i.fas.fa-sign-out-alt
-            .row      
+            .row
+                nav.col-2.col-md-2.col-sm-12
+                    a(href="/").blue
+                        i.fas.fa-dove
+                    a(href="/")
+                        i.fas.fa-home
+                    a(href="/profile")
+                        i.fas.fa-user
+                    a(href="/logout")
+                        i.fas.fa-sign-out-all 
+                        
                 .mainSectionContainer.col-sm-6.col-md-8.col-lg-8
                     .titleContainer 
                         h1 #{pageTitle}
